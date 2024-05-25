@@ -12,16 +12,32 @@ const defaultTodos = [
   { text:'Tomar el curso de intro a React.js', completed:false},
   { text:'React es interesante ', completed:true},
   { text:'jajajaja', completed:false},
+  { text:'usar estados derivados', completed:true},
 
 ];
 function App() {
+  const [todos, setTodos]= React.useState(defaultTodos);
+  //Inicializar estados 
+  // serchValue es ek estadi que almacena el valor de busqueda
+  // setSeatchValue  es la funcion que utiliza para actualizar ek valor de searchVaue, simpre se coloca set
+  //useState(') inicializa serchValue con una cadena vacia 
+  const [searchValue, setSearchValue]= React.
+  useState ('');
+
+  const completedTodos = todos.filter(todo => !!todo.completed).length; //La prpiedad filter permirte  encontrar toas las coincidencias  
+  const totalTodos = todos.length;
+  console.log('Los usuarios buscan todos de '+ searchValue);  
   return (
     <>  
       {/* se puede colocar  <React.Fragment> o simplemente <>.
        se puede colocar asi  <React.Fragment>   o simplemente <>
       se indica cuales son las props en partiular que debe recibir  */}
-      <TodoCounter completed={16} total={25}/>
-      <TodoSearch/>
+      <TodoCounter completed={completedTodos} total={totalTodos}/>
+      <TodoSearch
+       //Se tiene que enviar el estado y el actualizador de estados al componente todoSerach, esto se hace con props 
+       searchValue={searchValue} //se puede  llamar igual que el estado
+       setSearchValue = {setSearchValue}
+       />
       
       <TodoList>
         {/* <TodoItem/>

@@ -1,14 +1,11 @@
 import React from 'react';  //Importar react para poder utilizar estados 
 import './TodoSearch.css'
-function TodoSearch() {
-  //Inicializar estados 
-  // serchValue es ek estadi que almacena el valor de busqueda
-  // setSeatchValue  es la funcion que utiliza para actualizar ek valor de searchVaue, simpre se coloca set
-//useState(') inicializa serchValue con una cadena vacia 
-  const [searchValue, setSearchValue]= React.
-useState ('');
-
-  console.log('Los usuarios buscan todos de '+ searchValue);  
+function TodoSearch({
+  //Recibir 
+  searchValue,
+  setSearchValue
+}) {
+  
     return (
     <div className="TodoSearch">
       <input id="todo-search-input" type="search" placeholder="Buscar tarea..." 
