@@ -1,58 +1,15 @@
-body{
-    background-color: #eeee;
-    font-family: Arial, sans-serif;
-}
-h1{
+.TodoCounter{
     font-size: 24px;
     text-align: center;
     margin: 0;
     padding: 48px;
     color: gray;
     text-transform: uppercase;
-    
-    
-    
+    font-weight: normal;   
 }
-.todo-search {
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-  }
-  
-  #todo-search-input {
-    margin: 0;
-    width: 500px;
-    height: 25px;
-    border: 2px solid #e0e0e0;
-    border-radius: 4px;
-  }
-  
-ul{
-    list-style-type: none;
-    
-    li{
-        text-align: center;
-    justify-content: center;
-    border: 2px solid #bdbdbd;
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2); /* Sombra con desplazamiento y desenfoque */
-    margin: 30px;
-    cursor: pointer;
-    }
+.TodoCounter span{
+    font-weight: bold;
+}
 
-}
-button {
-    position: fixed; /* Fija la posición del botón */
-    right:20px; /* Distancia desde la izquierda */
-    top: 90%; /* Centra el botón verticalmente */
-    width: 50px; /* Ancho del botón */
-    height: 50px; /* Alto del botón */
-    background-color: #757575; /* Color de fondo */
-    color: white; 
-    border: none;
-    border-radius: 50%; /* Hace el botón redondo */
-    text-align: center; 
-    font-size: 24px;
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
-    /* transition: background-color 0.3s;  Transición para el cambio de color */
-  }
+  
+

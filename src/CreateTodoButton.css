@@ -1,0 +1,20 @@
+.CreateTodoButton {
+    position: fixed; /* Fija la posición del botón */
+    right:20px; /* Distancia desde la izquierda */
+    top: 90%; /* Centra el botón verticalmente */
+    width: 50px; /* Ancho del botón */
+    height: 50px; /* Alto del botón */
+    background-color: #757575; /* Color de fondo */
+    color: white; 
+    border: none;
+    border-radius: 50%; /* Hace el botón redondo */
+    text-align: center; 
+    font-size: 24px;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    transform: scale(1);
+    transition: transform 0.3s;
+  }
+.CreateTodoButton:hover{
+    transform: scale(1.1);
+}
