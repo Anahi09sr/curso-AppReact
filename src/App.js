@@ -23,9 +23,41 @@ function App() {
   //useState(') inicializa serchValue con una cadena vacia 
   const [searchValue, setSearchValue]= React.
   useState ('');
-
+ ///estados derivados 
   const completedTodos = todos.filter(todo => !!todo.completed).length; //La prpiedad filter permirte  encontrar toas las coincidencias  
   const totalTodos = todos.length;
+
+  const searchedTodos = todos.filter(
+    (todo) =>{
+  
+      //cuando este haciendo la validacion, toLowerCase() converira a minusculas , 
+      //esto permite mostrar todas las coicnidencias en el buscador sin importar si son en mayuscula o minuscula 
+      const todoText = todo.text.toLowerCase();
+      const searchText = searchValue.toLowerCase();
+      return todoText.includes(searchText); //nos mostrara todas las coicidencias, si incluye en  ese texto que tenga el estado searchValue
+    }
+   );
+//Completando TODOs
+  const completeTodo =(text) =>{
+    const newTodos =[...todos]; //Crear una copia de array de los todos
+    const todoIndex = newTodos.findIndex(// como saber cual todo queremos modificar, le colocamos un identificador unico
+     (todo) => todo.text == text
+  );
+    newTodos[todoIndex].completed =true;
+    setTodos(newTodos);
+  };  //Llamamos el actualizador, y le mandamos la nueva lista de todos ya actualizada 
+
+
+//Eliminado TODOS
+const deleteTodo =(text) =>{
+  const newTodos =[...todos]; 
+  const todoIndex = newTodos.findIndex(
+   (todo) => todo.text == text
+);
+  newTodos.splice(todoIndex, 1); //Eliminar, solo vamos a quitar un todo
+  setTodos(newTodos);
+};  
+
   console.log('Los usuarios buscan todos de '+ searchValue);  
   return (
     <>  
@@ -42,12 +74,16 @@ function App() {
       <TodoList>
         {/* <TodoItem/>
         <TodoItem/>
-        <TodoItem/> */}
-        {defaultTodos.map(todo => (
+        <TodoItem/>
+        vamos a renderizar los todo que estan gaudrados en el estado */}
+        {searchedTodos.map(todo => (
           <TodoItem 
           key={todo.text}  
           text={todo.text}
           completed={todo.completed}
+          //rncapular nuestras funciones en otras funciones, para no tener errores
+          onComplete={() => completeTodo (todo.text)}  //completar un todo, actulizador
+          onDelete={() => deleteTodo (todo.text)} 
           />
         ))}
         {/* lo anterior es lo mismo que 
