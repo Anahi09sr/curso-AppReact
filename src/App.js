@@ -41,9 +41,10 @@ function App() {
   const completeTodo =(text) =>{
     const newTodos =[...todos]; //Crear una copia de array de los todos
     const todoIndex = newTodos.findIndex(// como saber cual todo queremos modificar, le colocamos un identificador unico
-     (todo) => todo.text == text
-  );
-    newTodos[todoIndex].completed =true;
+     (todo) => todo.text == text);
+     newTodos[todoIndex].completed ? 
+    newTodos[todoIndex].completed = false :
+    newTodos[todoIndex].completed = true
     setTodos(newTodos);
   };  //Llamamos el actualizador, y le mandamos la nueva lista de todos ya actualizada 
 
